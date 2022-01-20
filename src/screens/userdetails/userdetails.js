@@ -77,10 +77,6 @@ export const UserDetails = () => {
                             style={styles.inner}
                         >
 
-                            <CardImage 
-                                source={require('../../../assets/images/home/kitchen.png')}
-                                resizeMode="contain"
-                            />
 
                         </LinearGradient>
                     </LinearGradient>

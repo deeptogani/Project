@@ -21,6 +21,7 @@
 		E8FE914F5C73422ABE1425DA /* tap.png in Resources */ = {isa = PBXBuildFile; fileRef = F7AFCC6CE99F4C129E5BD6A7 /* tap.png */; };
 		B106DD0978CF408B94B18859 /* NeutralFace-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 042681C33D4943DAAD9A5E8D /* NeutralFace-Bold.otf */; };
 		E062C3E2A67E4BFA9C9A941A /* NeutralFace.otf in Resources */ = {isa = PBXBuildFile; fileRef = 15DDED63BA8C4C4C867A67B0 /* NeutralFace.otf */; };
+		103BC566D02148219320F338 /* OpenSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9584651880C49F2B546CA1E /* OpenSans.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		F7AFCC6CE99F4C129E5BD6A7 /* tap.png */ = {isa = PBXFileReference; name = "tap.png"; path = "../assets/images/home/tap.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		042681C33D4943DAAD9A5E8D /* NeutralFace-Bold.otf */ = {isa = PBXFileReference; name = "NeutralFace-Bold.otf"; path = "../assets/fonts/NeutralFace-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		15DDED63BA8C4C4C867A67B0 /* NeutralFace.otf */ = {isa = PBXFileReference; name = "NeutralFace.otf"; path = "../assets/fonts/NeutralFace.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B9584651880C49F2B546CA1E /* OpenSans.ttf */ = {isa = PBXFileReference; name = "OpenSans.ttf"; path = "../assets/fonts/OpenSans.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				F7AFCC6CE99F4C129E5BD6A7 /* tap.png */,
 				042681C33D4943DAAD9A5E8D /* NeutralFace-Bold.otf */,
 				15DDED63BA8C4C4C867A67B0 /* NeutralFace.otf */,
+				B9584651880C49F2B546CA1E /* OpenSans.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				E8FE914F5C73422ABE1425DA /* tap.png in Resources */,
 				B106DD0978CF408B94B18859 /* NeutralFace-Bold.otf in Resources */,
 				E062C3E2A67E4BFA9C9A941A /* NeutralFace.otf in Resources */,
+				103BC566D02148219320F338 /* OpenSans.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

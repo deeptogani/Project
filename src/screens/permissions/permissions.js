@@ -14,19 +14,23 @@ import LinearGradient from "react-native-linear-gradient";
 //Navigation 
 import { useNavigation } from "@react-navigation/native";
 
+//Neo
+import { Neomorph, NeomorphBlur } from 'react-native-neomorph-shadows';
+
 const NeedPermissionsText = styled(Text)`
-    font-family : Average-Regular;
+    font-family : Arizonia-Regular;
+    font-weight : 700;
     font-size : 25px;
-    font-weight : 600;
-    color : ${Colors.golden};
+    color : ${Colors.offwhite};
     margin-top : 50px;
     text-align : center;
 `;
 
 const PermissionText = styled(Text)`
-    font-family : Average-Regular;
+    font-family : Arizonia-Regular;
+    font-weight : 700;
     font-size : 22px;
-    color : ${Colors.golden};
+    color : ${Colors.offwhite};
     flex : 20;
     margin-left : 15px;
 `;
@@ -45,6 +49,14 @@ const AskButtonText = styled(Text)`
     color : ${Colors.black};
     text-align :  center;
     align-self : center;
+`;
+
+const CardText = styled(Text)`
+    font-size : 18px;
+    font-family : Arizonia-Regular;
+    font-weight : 700;
+    color : ${Colors.offwhite};
+    text-align : center;
 `;
 
 export const Permission = () => {
@@ -79,23 +91,12 @@ export const Permission = () => {
 
     }, [isStorage, isCamera, isLocation]);
 
-    const AskPermissions = () => {
-        if(isStorage){
-            PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE);
-        }
-        if(isCamera){
-            PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA);
-        }
-        if(isLocation){
-            PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION && PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION);
-        }
-    }
-
     return (
+
         <View style={styles.screen}>
 
             <LinearGradient
-                colors={[Colors.offblack,Colors.luxblack,Colors.black]}
+                colors={[Colors.luxblack ,Colors.luxblack,Colors.luxblack]}
                 stops={[0.45,0.4,1]} style={styles.screen}
             >
                 <ScrollView style={styles.screen}>
@@ -138,27 +139,56 @@ export const Permission = () => {
 
                     </View>
 
-                    <AskPermissionsButton onPress={() => AskPermissions()}>
+                    <TouchableOpacity style={{height : 80, width : '95%', marginTop : 30, alignSelf : 'center', alignItems : 'center'}}>
 
-                        <LinearGradient style={styles.button} 
-                            colors={[Colors.golden, Colors.darkgolden]} 
-                            start={{x : 0.4, y : 0}}
-                            end={{x : 0.4, y : 1}}
-                            locations={[0, 0.9]}
-                            style={styles.button}
-                        >
+                        <Neomorph
+                            style={{
+                                shadowRadius: 3,
+                                borderRadius: 35,
+                                backgroundColor: Colors.luxblack,
+                                width: 200,
+                                height: 50,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            }}
+                            >
+                            <Neomorph
+                                inner
+                                style={{
+                                shadowRadius: 7,
+                                borderRadius: 90,
+                                backgroundColor: Colors.luxblack,
+                                width: 190,
+                                height: 50,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                }}
+                            >
+                                <Neomorph
+                                style={{
+                                    shadowRadius: 7,
+                                    borderRadius: 35,
+                                    backgroundColor: Colors.luxblack,
+                                    width: 180,
+                                    height: 50,
+                                    justifyContent : 'center'
+                                }}
+                                >
 
-                            <AskButtonText>Grant Permissions</AskButtonText>
+                                    <CardText>Allow</CardText>
 
-                        </LinearGradient>
+                                </Neomorph>
+                            </Neomorph>
+                        </Neomorph>
 
-                    </AskPermissionsButton>
+                    </TouchableOpacity>
 
                 </ScrollView>
 
             </LinearGradient>
 
         </View>
+        
     );
 }
 
@@ -188,6 +218,13 @@ const styles = StyleSheet.create({
         borderRadius : 15,
         height : 50,
         justifyContent : 'center',
-        alignItems : 'center'
-    }
+        alignItems : 'center,'
+    },
+    card : {
+        borderRadius : 18,
+        height : '100%',
+        width : '100%',
+        alignItems : 'center',
+        marginTop : 50,
+    },
 })
