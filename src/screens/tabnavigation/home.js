@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { View, Text, TouchableOpacity, Image, ScrollView, StyleSheet, Dimensions, Touchable } from "react-native";
+import { View, Text, TouchableOpacity, Image, ScrollView, StyleSheet, Dimensions } from "react-native";
 
 //Styles
 import styled from "styled-components";
@@ -79,27 +79,12 @@ export const Home = () => {
     const [city, setCity] = useState('Bhiwandi');
     const [username, setUsername] = useState('Deep');
 
-    useEffect(() => {
+    const navigation = useNavigation();
 
-        getLocation();
-
-    }, []);
-
-    const getLocation = async() => {
-
-        GetLocation.getCurrentPosition({
-            enableHighAccuracy: true,
-            timeout: 5000,
-        })
-        .then(location => {
-            
-            const { latitude, longitude } = location;
-
-            console.log(latitude + longitude);
-        })
-        .catch(error => {});
-
+    const move = () => {
+        navigation.navigate('AppDisplay');
     }
+
     
     return (
 
@@ -188,25 +173,33 @@ export const Home = () => {
 
                     <ScrollView style={styles.row} horizontal showsHorizontalScrollIndicator={false} >
 
-                        <CCard 
-                            app={require('../../../assets/images/home/electric.png')} 
-                            name="Electric"
-                        />
+                        <TouchableOpacity onPress={() => navigation.navigate('UserDetails')}>
+                            <CCard 
+                                app={require('../../../assets/images/home/electric.png')} 
+                                name="Electric"
+                            />
+                        </TouchableOpacity>
 
-                        <CCard
-                            app={require('../../../assets/images/home/tap.png')} 
-                            name="Plumbing"
-                        />
+                        <TouchableOpacity>
+                            <CCard
+                                app={require('../../../assets/images/home/tap.png')} 
+                                name="Plumbing"
+                            />
+                        </TouchableOpacity>
 
-                        <CCard 
-                            app={require('../../../assets/images/home/kitchen.png')} 
-                            name="Kitchen"
-                        />
+                        <TouchableOpacity>
+                            <CCard 
+                                app={require('../../../assets/images/home/kitchen.png')} 
+                                name="Kitchen"
+                            />
+                        </TouchableOpacity>
 
-                        <CCard
-                            app={require('../../../assets/images/home/pest.png')} 
-                            name="Pest"
-                        />
+                        <TouchableOpacity>
+                            <CCard
+                                app={require('../../../assets/images/home/pest.png')} 
+                                name="Pest"
+                            />
+                        </TouchableOpacity>
 
                     </ScrollView>
 
@@ -214,25 +207,33 @@ export const Home = () => {
 
                     <ScrollView style={styles.row2} horizontal showsHorizontalScrollIndicator={false}>
 
-                        <PCard
-                            app={require('../../../assets/images/appliances/AirConditioner.png')}
-                            name="Air Conditioner"
-                        />
+                        <TouchableOpacity onPress={() => navigation.navigate("AppDisplay", {screen : 'AirConditioner'})}>
+                            <PCard
+                                app={require('../../../assets/images/appliances/AirConditioner.png')}
+                                name="Air Conditioner"
+                            />
+                        </TouchableOpacity>
 
-                        <PCard
-                            app={require('../../../assets/images/appliances/WashingMachine.png')}
-                            name="Washing Machine"
-                        />
+                        <TouchableOpacity onPress={() => navigation.navigate("AppDisplay", {screen : 'WashingMachine'})}>
+                            <PCard
+                                app={require('../../../assets/images/appliances/WashingMachine.png')}
+                                name="Washing Machine"
+                            />
+                        </TouchableOpacity>
 
-                        <PCard
-                            app={require('../../../assets/images/appliances/Fridge.png')}
-                            name="Fridge"
-                        />
+                        <TouchableOpacity onPress={() => navigation.navigate("AppDisplay", {screen : 'Fridge'})}>
+                            <PCard
+                                app={require('../../../assets/images/appliances/Fridge.png')}
+                                name="Fridge"
+                            />
+                        </TouchableOpacity>
 
-                        <PCard
-                            app={require('../../../assets/images/appliances/Microwave.png')}
-                            name="Microwave"
-                        />
+                        <TouchableOpacity onPress={() => navigation.navigate("AppDisplay", {screen : 'Microwave'})}>
+                            <PCard
+                                app={require('../../../assets/images/appliances/Microwave.png')}
+                                name="Microwave"
+                            />
+                        </TouchableOpacity>
 
                     </ScrollView>
 

@@ -15,7 +15,7 @@ import LinearGradient from "react-native-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 
 //Neo
-import { Neomorph, NeomorphBlur } from 'react-native-neomorph-shadows';
+import { Neomorph } from 'react-native-neomorph-shadows';
 
 const NeedPermissionsText = styled(Text)`
     font-family : Arizonia-Regular;
@@ -33,22 +33,6 @@ const PermissionText = styled(Text)`
     color : ${Colors.offwhite};
     flex : 20;
     margin-left : 15px;
-`;
-
-const AskPermissionsButton = styled(TouchableOpacity)`
-    height : 50px;
-    width : 300px;
-    border-radius : 15px;
-    margin-top : 100px;
-    align-self : center;
-`;
-
-const AskButtonText = styled(Text)`
-    font-family : Arizonia-Regular;
-    font-size : 30px;
-    color : ${Colors.black};
-    text-align :  center;
-    align-self : center;
 `;
 
 const CardText = styled(Text)`

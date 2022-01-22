@@ -14,6 +14,10 @@ import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+//React-Native-Animated
+import com.facebook.react.bridge.JSIModulePackage; // <- add this
+import com.swmansion.reanimated.ReanimatedJSIModulePackage; // <- add this
+
 //React-Native-Svg
 import com.horcrux.svg.SvgPackage;
 
@@ -40,6 +44,13 @@ public class MainApplication extends Application implements ReactApplication {
           return "index";
         }
 
+        // add more this "Override" below <----------------
+        //React-Native-Reanimated
+        @Override 
+        protected JSIModulePackage getJSIModulePackage() {
+          return new ReanimatedJSIModulePackage(); // <- add
+        }
+        //React-Native-Animated Ended
       };
 
   @Override

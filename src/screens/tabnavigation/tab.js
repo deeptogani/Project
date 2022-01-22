@@ -21,13 +21,6 @@ import { Neomorph } from 'react-native-neomorph-shadows';
 
 const Tabs = createBottomTabNavigator();
 
-const CardImage = styled(Image)`
-    height : 40px;
-    width : 40px;
-    align-self : center;
-    justify-content : center;
-`;
-
 const CardText = styled(Text)`
     font-size : 18px;
     font-family : Arizonia-Regular;
@@ -109,7 +102,7 @@ export const Tab = () => {
               options={({navigation}) => ({
                 tabBarShowLabel : false,
                 tabBarButton: () => (
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={() => navigation.navigate('ListDisplay')}>
 
                     <View style={styles.card}>
 

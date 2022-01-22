@@ -5,8 +5,6 @@ import { Colors } from "../../colors/colors";
 
 import { View, Image, StyleSheet, Text } from 'react-native';
 
-import LinearGradient from "react-native-linear-gradient";
-
 //Neomorph
 import { Neomorph, NeomorphBlur } from "react-native-neomorph-shadows";
 

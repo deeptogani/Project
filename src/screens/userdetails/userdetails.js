@@ -1,90 +1,72 @@
 import React, { useState, useEffect } from "react";
 
-import { View, ScrollView, Text, TouchableOpacity, StyleSheet, TextInput, Image } from "react-native";
-
-import LinearGradient from 'react-native-linear-gradient';
+import { View, ScrollView, Text, TouchableOpacity, StyleSheet, TextInput, Image, Dimensions } from "react-native";
 
 //Styles
 import styled from "styled-components";
-
-//Safe Area 
-import { SafeArea } from "../safearea/safearea";
-
-//Cards
-import { Card } from "react-native-paper";
 
 import { Colors } from "../../colors/colors";
 
 //Navigation 
 import { useNavigation } from "@react-navigation/native";
 
-import { Neomorph } from 'react-native-neomorph-shadows';
+import { Neomorph, NeomorphBlur } from 'react-native-neomorph-shadows';
 
 import { NeuBorderView, NeuSwitch } from 'react-native-neu-element';
 
-const CardImage = styled(Image)`
-    height : 175px;
-    width : 175px;
-    align-self : center;
-    justify-content : center;
-`;
+const mwidth = Dimensions.get('window').width;
+
+const mheight = Dimensions.get('window').height;
+
+let tabheight = mheight * 0.25;
+let tabwidth = mwidth * 0.9;
 
 export const UserDetails = () => {
 
-    const [isPressed, setIsPressed] = useState(false);
-    
-    const navigation = useNavigation();
-
     return (
 
-        <View>
+        <View style={styles.screen}>
 
-            <LinearGradient 
-                colors={[Colors.black , Colors.offblack, Colors.black, Colors.offblack]} 
-                start={{x : 0.0, y : 0.0}}
-                end={{x :1, y : 0.9}}
-                style={styles.screen}
-            >
+                <View style={styles.tab}>
 
                 <Neomorph
-                    darkShadowColor={Colors.golden} // <- set this
-                    lightShadowColor={Colors.golden} // <- this
-                    style={{
-                        shadowRadius: 15,
-                        shadowOffset: {width: 10, height: 12},
-                        shadowColor : Colors.golden,
-                        borderRadius: 35,
-                        backgroundColor: Colors.golden,
-                        width: 200,
-                        height: 200,
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        margin : 100,
-                        opacity : 0.8
-                    }}
-                >
-                    <LinearGradient 
-                        colors={[Colors.offblack, Colors.golden]} 
-                        start={{x : 0.0, y : 0.0}}
-                        end={{x :1, y : 0.9}}
-                        style={styles.card}
-                    >
+                            style={{
+                                shadowRadius: 3,
+                                backgroundColor: Colors.luxblack,
+                                width: tabwidth,
+                                height: tabheight,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            }}
+                            >
+                            <Neomorph
+                                inner
+                                style={{
+                                shadowRadius: 7,
+                                borderRadius: 90,
+                                backgroundColor: Colors.luxblack,
+                                width: tabwidth,
+                                height: tabheight,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                }}
+                            >
+                                <Neomorph
+                                style={{
+                                    shadowRadius: 7,
+                                    borderRadius: 35,
+                                    backgroundColor: Colors.luxblack,
+                                    width: tabwidth,
+                                    height: tabheight,
+                                    justifyContent : 'center'
+                                }}
+                                >
 
-                        <LinearGradient
-                            colors={[Colors.offblack, Colors.black]}
-                            start={{x : 0.0, y : 0.0}}
-                            end={{x : 1, y : 0.9}}
-                            style={styles.inner}
-                        >
+                                </Neomorph>
+                            </Neomorph>
+                        </Neomorph>
 
-
-                        </LinearGradient>
-                    </LinearGradient>
-
-                        
-                </Neomorph>
-
-            </LinearGradient>
+                </View>
 
         </View>
 
@@ -94,22 +76,19 @@ export const UserDetails = () => {
 const styles = StyleSheet.create({
 
     screen : {
-        height : '100%',
-        width : '100%',
+        height : "100%",
+        width : "100%",
+        backgroundColor : Colors.luxblack
     },
 
-    card : {
-        borderRadius : 35,
-        height : '100%',
+    tab : {
+        height : tabheight, 
         width : '100%',
-        justifyContent : 'center'  
-    },
-
-    inner : {
-        height : '98%',
-        width : '98%',
-        borderRadius : 35,
-        alignSelf : 'center',
-    },
+        borderTopLeftRadius : 150,
+        borderTopRightRadius : 150,
+        position : 'absolute',
+        bottom : 0,
+        alignSelf : 'center'
+    }
 
 });

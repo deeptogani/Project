@@ -25,7 +25,7 @@ const WelcomeText = styled(Text)`
     font-size : 60px;
     margin-top : 2%;
     margin-left : 2%;
-    color : ${Colors.golden};
+    color : ${Colors.offwhite};
     font-family : Arizonia-Regular;
 `;
 
@@ -33,7 +33,7 @@ const LogInText = styled(Text)`
     font-size : 35px;
     margin-top : 5%;
     text-align : center;
-    color : ${Colors.golden};
+    color : ${Colors.offwhite};
     font-family : Average-Regular;
 `;
 
@@ -51,7 +51,7 @@ const NumberText = styled(Text)`
     font-size : 40px;
     margin-top : 15px;
     margin-left : 5%;
-    color : ${Colors.golden};
+    color : ${Colors.offwhite};
     font-family : Average-Regular;
 `;
 
@@ -59,7 +59,7 @@ const NumberText2 = styled(Text)`
     font-size : 40px;
     margin-top : 5px;
     margin-left : 5%;
-    color : ${Colors.golden};
+    color : ${Colors.offwhite};
     font-family : Average-Regular;
 `;
 
@@ -67,7 +67,7 @@ const SubText = styled(Text)`
     font-size : 18px;
     margin-top : 15px;
     margin-left : 5%;
-    color : ${Colors.golden};
+    color : ${Colors.offwhite};
     font-family : Average-Regular;
     opacity : 0.75;
 `;
@@ -82,7 +82,7 @@ const PhoneInputCard = styled(Card)`
 
 const NineOneText = styled(Text)`
     font-size : 25px;
-    color : ${Colors.golden};
+    color : ${Colors.offwhite};
     font-family : Average-Regular;
     margin-left : 5%;
     margin-top : 11px;
@@ -91,7 +91,7 @@ const NineOneText = styled(Text)`
 
 const PhoneInput = styled(TextInput)`
     margin-left : 5%;
-    color : ${Colors.golden};
+    color : ${Colors.offwhite};
     font-size : 23px;
     font-family : Average-Regular;
     letter-spacing : 8px;
@@ -104,7 +104,7 @@ const VerifyButton = styled(TouchableOpacity)`
     border-radius : 15px;
     margin-top : 50px;
     align-self : center;
-    background-color : ${Colors.golden};
+    background-color : ${Colors.luxblack};
 `;
 
 const VerifyButtonText = styled(Text)`
@@ -142,7 +142,7 @@ const Code = styled(TextInput)`
     align-self : center;
     margin-top : 15px;
     background-color : ${Colors.offblack};
-    color : ${Colors.golden};
+    color : ${Colors.offwhite};
     text-align : center;
     justify-content : center;
     font-size : 30px;
