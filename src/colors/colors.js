@@ -12,6 +12,9 @@ export const Colors = {
     luxblack : "#1A1C23",
     sweetblue : "#7EBDC2",
     sweetred : "#BB4430",
+    royalblue : "#1c4048",
+
+    //Blue : #1c4048
     
 
 

@@ -51,7 +51,7 @@ export const CCard = (props) => {
                                 style={{
                                 shadowRadius: 7,
                                 borderRadius: 70,
-                                backgroundColor: Colors.luxblack,
+                                backgroundColor: Colors.offblack,
                                 width: 140,
                                 height: 140,
                                 justifyContent: 'center',

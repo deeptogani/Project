@@ -26,9 +26,10 @@ import { UserDetails } from './src/screens/userdetails/userdetails';
 import { Tab } from './src/screens/tabnavigation/tab';
 
 //Options Screens
-import { AppDisplay } from './src/screens/options/appdisplay';
 import { CategoryDisplay } from './src/screens/options/categorydisplay';
 import { ListDisplay } from './src/screens/options/listdisplay';
+import { AppSelect } from './src/screens/options/appselect';
+import { ImageUpload } from './src/screens/options/imageupload';
 
 const App = () => {
 
@@ -51,11 +52,14 @@ const App = () => {
         <Stack.Screen name="Tab" component={Tab} />
 
         {/*        Options Screens         */}
-        <Stack.Screen name="AppDisplay" component={AppDisplay} />
 
         <Stack.Screen name="CategoryDisplay" component={CategoryDisplay} />
 
         <Stack.Screen name="ListDisplay" component={ListDisplay} />
+
+        <Stack.Screen name="AppSelect" component={AppSelect} />
+
+        <Stack.Screen name="ImageUpload" component={ImageUpload} />
 
       </Stack.Navigator>
     </NavigationContainer>

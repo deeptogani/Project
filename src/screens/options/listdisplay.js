@@ -1,15 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import { View, Text, TouchableOpacity, ScrollView, Image, StyleSheet, Dimensions } from "react-native";
+import { View, ScrollView, Text, TouchableOpacity, StyleSheet, TextInput, Image, Dimensions } from "react-native";
 
-//Colors
-import { Colors } from '../../colors/colors';
+//Styles
+import styled from "styled-components";
 
-//styles
-import styled from 'styled-components';
+import { Colors } from "../../colors/colors";
 
-//Neo Elements
+//Linear Gradiemt
+import LinearGradient from "react-native-linear-gradient";
+
+//Navigation 
+import { useNavigation } from "@react-navigation/native";
+
 import { Neomorph, NeomorphBlur } from 'react-native-neomorph-shadows';
+
+import { NeuBorderView, NeuSwitch } from 'react-native-neu-element';
 
 //Data
 import { data } from "../../data/applianceData";
@@ -18,12 +24,26 @@ import { data } from "../../data/applianceData";
 import { CircleList } from "../../circleList/CircleList";
 
 const mwidth = Dimensions.get('window').width;
+
 const mheight = Dimensions.get('window').height;
+
+let tabheight = mheight * 0.3;
+let tabwidth = mwidth;
+
+const ChooseText = styled(Text)`
+    font-size : 20px;
+    color : ${Colors.offwhite};
+    font-family : Arizonia-Regular;
+    font-weight : 700;
+    text-align : center;
+    marginTop : 5px;
+`;
 
 const AppImage = styled(Image)`
     height : ${mheight * 0.1}px;
     width : ${mheight * 0.2}px;
     align-self : center;
+    marginTop : 15px;
 `;
 
 const AppText = styled(Text)`
@@ -35,27 +55,21 @@ const AppText = styled(Text)`
     marginTop : 15px;
 `;
 
-const SelectText = styled(Text)`
-    font-size : 25px;
-    color : ${Colors.offwhite};
-    font-family : Arizonia-Regular;
-    font-weight : 700;
-    text-align : center;
-`;
-
 const SImage = styled(Image)`
-    height : ${mheight * 0.25}px;
-    width : ${mwidth * 0.8}px;
+    height : ${mheight * 0.4}px;
+    width : ${mwidth * 0.75}px;
     align-self : center;
+    justify-content : center;
+    align-items : center;
 `;
 
 const SText =  styled(Text)`
-    font-size : 32px;
+    font-size : 20px;
     font-family : Arizonia-Regular;
     font-weight : 700;
     color : ${Colors.offwhite};
     text-align : center;
-    marginTop : 25px;
+    marginTop : 15px;
 `;
 
 const BookText = styled(Text)`
@@ -71,92 +85,88 @@ export const ListDisplay = () => {
     const [app, setApp] = useState(null);
     const [isNull, setIsNull] = useState(true);
 
+    const navigation = useNavigation();
+
     useEffect(() => {
         app === null ? setIsNull(true) : setIsNull(false);
     }, [app]);
-    
 
     const renderItem = ({ item }) => (
 
         <TouchableOpacity onPress={() => setApp(item)}>
-
+    
             <AppImage source={item.image} resizeMode='contain'/>
-
+    
             <AppText>{item.title}</AppText>
         
         </TouchableOpacity>
-    )
+    );
 
     return (
 
-        <View style={styles.screen} color={Colors.offblack}>
+        <View style={styles.screen}>
 
-            <ScrollView style={styles.screen}>
-
-                <View style={styles.view}>
-
-                    <SelectText>Choose The Appliance</SelectText>
-
+            <Neomorph
+                    style={{
+                        shadowRadius: 3,
+                        backgroundColor: Colors.offblack,
+                        width: tabwidth,
+                        height: tabheight,
+                        borderRadius : 350,
+                        bottom : -50,
+                        position : 'absolute',
+                        alignItems : 'center',
+                    }}
+                    >
                     <Neomorph
+                        inner
                         style={{
-                            shadowRadius: 10,
-                            backgroundColor: Colors.luxblack,
-                            width: mwidth * 0.99,
-                            height: mheight * 0.4,
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            marginTop : 10,
-                            borderTopLeftRadius : 350,
+                        shadowRadius: 7,
+                        borderRadius: 330,
+                        backgroundColor: Colors.offblack,
+                        width: tabwidth * 0.95,
+                        height: tabheight * 0.98,
+                        alignItems : 'center',
                         }}
                     >
                         <Neomorph
-                            inner
-                            style={{
-                            shadowRadius: 25,
+                        inner
+                        style={{
+                            shadowRadius: 9,
+                            borderRadius: 300,
                             backgroundColor: Colors.luxblack,
-                            width: mwidth * 0.94,
-                            height: mheight * 0.39,
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            borderTopLeftRadius : 350,
-                            }}
+                            width: tabwidth * 0.9,
+                            height: tabheight * 0.96,
+                        }}
                         >
-                            
 
-                                <CircleList
-                                    data={data}
-                                    keyExtractor={item => item.id}
-                                    renderItem={renderItem}
-                                    style={{borderTopLeftRadius : 350}}
-                                />
+                            <ChooseText>Choose</ChooseText>
 
+                            <CircleList
+                                data={data}
+                                keyExtractor={item => item.id}
+                                renderItem={renderItem}
+                            />
 
                         </Neomorph>
+
                     </Neomorph>
-{!isNull ?  (
-                    <View style={{marginTop : '5%', alignSelf : "center", justifyContent : 'center', alignItems : 'center', height : 500}}>
+                </Neomorph>
 
-                        <NeomorphBlur
-                                style={{
-                                    shadowRadius: 25,
-                                    shadowOffset : {height : 0, width : -1},
-                                    borderRadius: 45,
-                                    backgroundColor: Colors.luxblack,
-                                    width: mheight * 0.9,
-                                    height: mwidth * 0.35,
-                                }}
-                            >
 
-                            <SImage
-                                source={app.image}
-                                resizeMode='contain'
-                            />
+
+            {!isNull ?  (
+                <View style={{paddingTop : '5%'}}>
+
+                    <ChooseText>Selected Appliance/Services</ChooseText>
+
+                    <View style={{marginTop : '5%', alignSelf : "center", alignItems : 'center', height : mheight * 0.8, width : mwidth * 0.5}}>
+
+                            <SImage source={app.image} resizeMode="contain"/>
 
                             <SText>{app.title}</SText>
 
-                        </NeomorphBlur>
-
-                        <TouchableOpacity onPress={() => console.log("pressed")}>
+                        <TouchableOpacity onPress={() => navigation.navigate('AppSelect', {app : app})}>
 
                         <Neomorph
                             lightShadowColor={Colors.sweetred}
@@ -166,11 +176,11 @@ export const ListDisplay = () => {
                               shadowOffset : {height : 0, width : -3},
                               borderRadius: 70,
                               backgroundColor: Colors.sweetred,
-                              width: 250,
-                              height: 60,
+                              width: 150,
+                              height: 55,
                               justifyContent: 'center',
                               alignItems: 'center',
-                              marginTop : 200,
+                              marginTop : 25
 
                           }}
                           >
@@ -180,8 +190,8 @@ export const ListDisplay = () => {
                               shadowRadius: 7,
                               borderRadius: 70,
                               backgroundColor: Colors.sweetred,
-                              width: 248,
-                              height: 58,
+                              width: 148,
+                              height: 53,
                               justifyContent: 'center',
                               alignItems: 'center',
                               }}
@@ -192,7 +202,7 @@ export const ListDisplay = () => {
                                   shadowRadius: 9,
                                   borderRadius: 70,
                                   backgroundColor: Colors.sweetred,
-                                  width: 245,
+                                  width: 145,
                                   height: 55,
                                   justifyContent : 'center'
                               }}
@@ -207,12 +217,11 @@ export const ListDisplay = () => {
                       </TouchableOpacity>
 
                     </View>
+
+                    </View>
             ) : null
-}
+            }
 
-                </View>                  
-
-            </ScrollView>
         </View>
 
     );
@@ -221,16 +230,20 @@ export const ListDisplay = () => {
 const styles = StyleSheet.create({
 
     screen : {
-        height : '100%',
-        width : '100%',
-        backgroundColor : Colors.luxblack,
+        height : "100%",
+        width : "100%",
+        backgroundColor : Colors.luxblack
     },
 
-    view : {
-        marginTop : '10%',
-        alignSelf : 'center',
-        height : '100%', 
-        width : '100%'
+    tab : {
+        height : tabheight, 
+        width : tabwidth,
+        position : 'absolute',
+        bottom : 0,
+        borderTopLeftRadius : 150,
+        borderTopRightRadius : 150,
+        backgroundColor : Colors.offblack,
+        alignSelf : 'center'
     }
 
 });

@@ -3,7 +3,7 @@ import React from "react";
 //Colors
 import { Colors } from "../../colors/colors";
 
-import { View, Image, StyleSheet, Text } from 'react-native';
+import { View, Image, StyleSheet, Text, Dimensions } from 'react-native';
 
 //Neomorph
 import { Neomorph, NeomorphBlur } from "react-native-neomorph-shadows";
@@ -11,23 +11,18 @@ import { Neomorph, NeomorphBlur } from "react-native-neomorph-shadows";
 //Styles
 import styled from "styled-components";
 
-const CardImage = styled(Image)`
-    height : 100px;
-    width : 100px;
-    align-self : center;
-    justify-content : center;
-`;
-
 const CardText = styled(Text)`
     font-size : 14px;
     font-family : OpenSans;
     font-weight : 700;
     color : ${Colors.offwhite};
     text-align : center;
-    marginTop : 10px;
 `;
 
-export const PCard = (props) => {
+const swidth = Dimensions.get('window').width;
+const sheight = Dimensions.get('window').height;
+
+export const OCard = (props) => {
 
     return (
 
@@ -38,8 +33,8 @@ export const PCard = (props) => {
                                 shadowRadius: 3,
                                 borderRadius: 35,
                                 backgroundColor: Colors.luxblack,
-                                width: 150,
-                                height: 150,
+                                width: swidth * 0.3,
+                                height: sheight * 0.15,
                                 justifyContent: 'center',
                                 alignItems: 'center',
                             }}
@@ -50,8 +45,8 @@ export const PCard = (props) => {
                                 shadowRadius: 7,
                                 borderRadius: 38,
                                 backgroundColor: Colors.offblack,
-                                width: 140,
-                                height: 140,
+                                width: swidth * 0.29,
+                                height: sheight * 0.14,
                                 justifyContent: 'center',
                                 alignItems: 'center',
                                 }}
@@ -62,19 +57,20 @@ export const PCard = (props) => {
                                     shadowRadius: 9,
                                     borderRadius: 35,
                                     backgroundColor: Colors.luxblack,
-                                    width: 130,
-                                    height: 130,
-                                    justifyContent : 'center'
+                                    width: swidth * 0.28,
+                                    height: sheight * 0.13,
+                                    justifyContent : 'center',
+                                    alignItems : 'center'
                                 }}
                                 >
 
-                                    <CardImage source={props.app} resizeMode="contain"/>
+                                    <CardText>{props.name}</CardText>
 
                                 </Neomorph>
                             </Neomorph>
                         </Neomorph>
 
-                        <CardText>{props.name}</CardText>
+
                     </View>
 
     );
@@ -84,9 +80,8 @@ export const PCard = (props) => {
 const styles = StyleSheet.create({
 
     card : {
-      height : 200,
-      marginTop : 5, 
-      marginLeft : 25,
+      marginTop : 5,
+      justifyContent : 'space-evenly'
     },
 
 });

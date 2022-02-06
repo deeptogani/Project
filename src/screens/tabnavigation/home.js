@@ -173,7 +173,7 @@ export const Home = () => {
 
                     <ScrollView style={styles.row} horizontal showsHorizontalScrollIndicator={false} >
 
-                        <TouchableOpacity onPress={() => navigation.navigate('UserDetails')}>
+                        <TouchableOpacity>
                             <CCard 
                                 app={require('../../../assets/images/home/electric.png')} 
                                 name="Electric"
@@ -207,28 +207,28 @@ export const Home = () => {
 
                     <ScrollView style={styles.row2} horizontal showsHorizontalScrollIndicator={false}>
 
-                        <TouchableOpacity onPress={() => navigation.navigate("AppDisplay", {screen : 'AirConditioner'})}>
+                        <TouchableOpacity onPress={() => navigation.navigate("AppSelect", {screen : 'AirConditioner'})}>
                             <PCard
                                 app={require('../../../assets/images/appliances/AirConditioner.png')}
                                 name="Air Conditioner"
                             />
                         </TouchableOpacity>
 
-                        <TouchableOpacity onPress={() => navigation.navigate("AppDisplay", {screen : 'WashingMachine'})}>
+                        <TouchableOpacity onPress={() => navigation.navigate("AppSelect", {screen : 'WashingMachine'})}>
                             <PCard
                                 app={require('../../../assets/images/appliances/WashingMachine.png')}
                                 name="Washing Machine"
                             />
                         </TouchableOpacity>
 
-                        <TouchableOpacity onPress={() => navigation.navigate("AppDisplay", {screen : 'Fridge'})}>
+                        <TouchableOpacity onPress={() => navigation.navigate("AppSelect", {screen : 'Fridge'})}>
                             <PCard
                                 app={require('../../../assets/images/appliances/Fridge.png')}
                                 name="Fridge"
                             />
                         </TouchableOpacity>
 
-                        <TouchableOpacity onPress={() => navigation.navigate("AppDisplay", {screen : 'Microwave'})}>
+                        <TouchableOpacity onPress={() => navigation.navigate("AppSelect", {screen : 'Microwave'})}>
                             <PCard
                                 app={require('../../../assets/images/appliances/Microwave.png')}
                                 name="Microwave"
